@@ -10,7 +10,6 @@ const App = () => {
   const [searchField, setSearchField] = useState('');
   const [monsters, setMonsters] = useState([]);
   const [filteredMonsters, setFilterMonsters] = useState(monsters);
-  const [stringField, setStringField] = useState('');
 
   useEffect(() => {
     fetch("https://jsonplaceholder.typicode.com/users")
@@ -31,10 +30,6 @@ const App = () => {
     setSearchField(searchFieldString);
   };
 
-  const onStringChange = (event) => {
-    setStringField(event.target.value);
-  }
-
 
   return (
     <div className="App">
@@ -43,9 +38,6 @@ const App = () => {
       className='monsters-search-box'
       onChangeHandler={onSearchChange} 
       placeholder='search monsters' />
-      <SearchBox  
-      onChangeHandler={onStringChange} 
-      placeholder='set string' />
       <CardList monsters={filteredMonsters} />
     </div>
   )
